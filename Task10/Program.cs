@@ -3,13 +3,12 @@
 // 782 -> 8
 // 918 -> 1
 
-Console.Write("Введите трехзначное число: ");
-var number = Convert.ToInt32(Console.ReadLine());
-
-while (number < 100 || number > 999)
+int number;
+do
 {
     Console.Write("Введите трехзначное число: ");
     number = Convert.ToInt32(Console.ReadLine());
 }
+while (number < 100 || number > 999);
 int secondNumber = (number % 100) / 10;
 Console.WriteLine($"Вторая цифра числа {number} - {secondNumber}");
