@@ -7,7 +7,7 @@ while (!isNumber)
     isNumber = Int32.TryParse(Console.ReadLine(), out number);
 }
 
-bool isPalindrome(int num)
+bool IsPalindrome(int num)
 {
     int reverseNumber = 0;
     int numberTemp = num;
@@ -18,8 +18,8 @@ bool isPalindrome(int num)
         numberTemp /= 10;
     }
 
-    return num == reverseNumber ? true : false;
+    return num == reverseNumber;
 }
 
-string message = isPalindrome(number) ? $"Число {number} является палиндромом" : $"Число {number} не является палиндромом";
+string message = IsPalindrome(number) ? $"Число {number} является палиндромом" : $"Число {number} не является палиндромом";
 Console.WriteLine(message);
