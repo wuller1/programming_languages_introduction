@@ -1,10 +1,13 @@
-﻿int[] RandomArray()
+﻿// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+// 1, 2, 5, 7, 19, 6, 1, 33 -> [1, 2, 5, 7, 19, 6, 1, 33]
+
+int[] RandomArray(int numOfElements, int minValue, int maxValue)
 {
     Random rnd = new Random();
-    int[] array = new int[8];
+    int[] array = new int[numOfElements];
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = rnd.Next(0, 2);
+        array[i] = rnd.Next(minValue, maxValue);
     }
     return array;
 }
@@ -26,4 +29,4 @@ void PrintArray(int[] array)
     Console.Write(" ]\n");
 }
 
-PrintArray(RandomArray());
+PrintArray(RandomArray(8, 0, 100));
