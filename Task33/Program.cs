@@ -26,15 +26,17 @@ void PrintArray(int[] array)
     Console.Write("]\n");
 }
 
-void InverseArray(int[] arr)
+bool InArray(int value, int[] arr)
 {
     for (int i = 0; i < arr.Length; i++)
     {
-        arr[i] *= (-1);
+        if (value == arr[i]) return true;
     }
+    return false;
 }
 
-var array = RandomArray(12, -100, 100);
+var array = RandomArray(12, 0, 10);
+int val = 3;
+string msg = InArray(val, array) ? "Да" : "Нет";
 PrintArray(array);
-InverseArray(array);
-PrintArray(array);
+Console.WriteLine(msg);
