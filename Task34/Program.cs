@@ -2,7 +2,18 @@
 // Напишите программу, которая покажет количество чётных чисел в массиве.
 // [345, 897, 568, 234] -> 2
 
-void PrintDoubleArray(double[] array)
+int[] GenerateRandomIntArray(int numOfElements, int minValue, int maxValue)
+{
+    Random rnd = new Random();
+    int[] array = new int[numOfElements];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = rnd.Next(minValue, maxValue + 1);
+    }
+    return array;
+}
+
+void PrintArray(int[] array)
 {
     Console.Write("[ ");
     for (int i = 0; i < array.Length; i++)
@@ -16,18 +27,21 @@ void PrintDoubleArray(double[] array)
             Console.Write($"{array[i]}, ");
         }
     }
-    Console.Write($"]\n");
+    Console.Write("]\n");
 }
 
-double[] GenerateRandomDoubleArray(int length, int min, int max, bool integer = true, int precision = 2)
+int NumberOfEvenInArray(int[] arr)
 {
-    Random rnd = new Random();
-    double[] arr = new double[length];
-
-    for (var i = 0; i < length; i++)
-        arr[i] = Math.Round(rnd.NextDouble() * (max - min) + min, precision);
-    return arr;
-
+    int count = 0;
+    foreach (var item in arr)
+    {
+        if (item % 2 == 0) count++;
+    }
+    return count;
 }
 
-PrintDoubleArray(GenerateRandomDoubleArray(10, 0, 10, false));
+var array = GenerateRandomIntArray(10, 100, 999);
+var numberOfEven = NumberOfEvenInArray(array);
+
+PrintArray(array);
+Console.WriteLine($"Количество четных чисел в массиве: {numberOfEven}");
