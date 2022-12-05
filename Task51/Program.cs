@@ -28,15 +28,10 @@ int[,] GenerateRandomIntMatrix(int rows, int columns, int min, int max)
 int MainDiagonalSum(int[,] mat)
 {
     int sum = 0;
-    for (var i = 0; i < mat.GetLength(0); i++)
+    int diagonalLength = mat.GetLength(0) > mat.GetLength(1) ? mat.GetLength(1) : mat.GetLength(0);
+    for (var i = 0; i < diagonalLength; i++)
     {
-        for (var j = 0; j < mat.GetLength(1); j++)
-        {
-            if (i == j)
-            {
-                sum += mat[i, j];
-            }
-        }
+        sum += mat[i, i];
     }
     return sum;
 }
