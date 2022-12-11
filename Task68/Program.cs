@@ -9,9 +9,7 @@ int AckermannFunction(int m, int n)
         return n + 1;
     else if (m > 0 && n == 0)
         return AckermannFunction(m - 1, 1);
-    else if (m > 0 && n > 0)
-        return AckermannFunction(m - 1, AckermannFunction(m, n - 1));
-    return -1;
+    return AckermannFunction(m - 1, AckermannFunction(m, n - 1));
 }
 
 Console.Write("Введите число m: ");
